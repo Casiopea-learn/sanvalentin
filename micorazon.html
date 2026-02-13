@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Getzemaní mi princesa 🌻💖</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    img {
+      width: 80%;
+      max-width: 250px;
+      border-radius: 20px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 0 20px rgba(255,255,255,0.7);
+    }
+
+    button {
+      background-color: white;
+      color: #ff4d6d;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #respuesta {
+      font-size: 22px;
+      margin-top: 20px;
+    }
+
+    .girasol {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <button onclick="activarMusica()">🎵 Toca para que suene nuestra canción!</button>
+
+  <h1>💖 Getzemaní 💖</h1>
+
+  <img src="gatitos.png" alt="Te veo 🐱💘">
+
+  <p>Desde el 21 de julio de 2022 han pasado:</p>
+  <p id="contador"></p>
+
+  <p>Jamás había sentido un amor tan profundo y cálido como el tuyo ✨</p>
+  <p>¿Me harías el honor de ser mi san valentíon?:3 💌</p>
+
+  <button onclick="si()">Por supuesto que claro que desde luego que yes 💕</button>
+  <button id="noBtn" onmouseover="moverNo()">No:p, :(</button>
+
+  <div id="respuesta"></div>
+
+  <script>
+    function activarMusica() {
+      document.getElementById("musica").play();
+    }
+
+    function si() {
+      document.getElementById("respuesta").innerHTML =
+      "JIJIJIJIJI TE AMO OUH YEAH GACHAS 💘🌻";
+    }
+
+    function moverNo() {
+      const btn = document.getElementById("noBtn");
+      btn.style.position = "absolute";
+      btn.style.top = Math.random() * window.innerHeight + "px";
+      btn.style.left = Math.random() * window.innerWidth + "px";
+    }
+
+    // Contador de tiempo juntos
+    const inicio = new Date("2022-07-21");
+    const hoy = new Date();
+    const diff = hoy - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("contador").innerHTML = dias + " días juntos 🌻💖";
+
+    // Girasoles cayendo
+    function crearGirasol() {
+      const girasol = document.createElement("div");
+      girasol.classList.add("girasol");
+      girasol.innerHTML = "🌻";
+      girasol.style.left = Math.random() * 100 + "vw";
+      girasol.style.animationDuration = (3 + Math.random() * 5) + "s";
+      document.body.appendChild(girasol);
+
+      setTimeout(() => {
+        girasol.remove();
+      }, 8000);
+    }
+
+    setInterval(crearGirasol, 400);
+  </script>
+
+</body>
+</html>
